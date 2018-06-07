@@ -53,9 +53,7 @@
                         <!-- logo -->
                         <div class="logo">
                             <div class="img-wrap">
-                                <a href="/">
-                                    <img src="<?php bloginfo('template_url'); ?>/assets/i/home/logo.png" alt="logo">
-                                </a>
+                                <?php the_custom_logo(); ?>
                             </div>
 
                             <!-- logo-conten -->

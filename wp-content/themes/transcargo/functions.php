@@ -28,6 +28,7 @@ function filter_function_name_3020( $atts, $item, $args, $depth ){
 
 add_theme_support( 'title-tag' );
 add_theme_support( 'post-thumbnails' );
+add_theme_support( 'custom-logo' );
 
 register_nav_menus( [
     'index-menu' => 'Меню на главной',
