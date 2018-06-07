@@ -35,20 +35,16 @@
 
                     <!-- socials -->
                     <div class="col-md-3 col-xs-12">
-                        <ul class="header-socials">
-                            <li class="social-item"><a href="#" class="social-link"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a href="#" class="social-link"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a href="#" class="social-link"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a href="#" class="social-link"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a href="#" class="social-link"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-                        </ul>
+                        <?php if(!dynamic_sidebar( 'header-socials' )): ?>
+                            <h5 style="color: magenta;">Место для социальных иконок</h5>
+                        <?php endif; ?>
                     </div><!-- socials -->
 
                 </div>
             </div>
         </div><!-- header-top -->
 
-        <!--  header-conte  -->
+        <!--  header-content  -->
         <div class="header-content">
             <div class="container">
                 <div class="row">
@@ -84,7 +80,7 @@
                                 <div class="block">
                                     <h5 class="contacts-title">Call us</h5>
 
-                                    <span class="contacts-text">1.800.987.6543</span>
+                                    <span class="contacts-text"><?php echo get_option('transcargo_theme_options')['phone']; ?></span>
                                 </div>
                             </div>
 
@@ -98,7 +94,7 @@
 
                                     <h5 class="contacts-title">Email us</h5>
 
-                                    <span class="contacts-text">info@tc-url.com</span>
+                                    <span class="contacts-text"><?php echo get_option('transcargo_theme_options')['email']; ?></span>
 
                                 </div>
                             </div>
@@ -112,7 +108,7 @@
                                 <div class="block">
                                     <h5 class="contacts-title">Work hours</h5>
 
-                                    <span class="contacts-text">Mon - Sat  8.00 : 19.00</span>
+                                    <span class="contacts-text"><?php echo get_option('transcargo_theme_options')['schedule']; ?></span>
                                 </div>
                             </div>
 
