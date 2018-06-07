@@ -1944,47 +1944,47 @@ header-content
   @media screen and (min-width: 768px) {
     .header-menu {
       display: block !important; } }
-  .header-menu__item {
+  .header-menu li {
     display: inline-block;
     vertical-align: top; }
     @media screen and (max-width: 768px) {
-      .header-menu__item {
+      .header-menu li {
         display: block;
         text-align: left; } }
-    .header-menu__item.active .header-menu__link:before {
+    .header-menu li.current-menu-item a:before {
       left: 50%;
       opacity: 1; }
-    .header-menu__item:first-child .header-menu__link {
+    .header-menu li:first-child .header-menu a {
       padding-left: 0; }
-      .header-menu__item:first-child .header-menu__link:before {
+      .header-menu li:first-child .header-menu a:before {
         left: 0;
         -webkit-transform: translateX(0);
                 transform: translateX(0); }
-    .header-menu__item:last-child .header-menu__link {
+    .header-menu li:last-child .header-menu a {
       border-right: 0; }
-  .header-menu__link {
+  .header-menu a {
     display: inline-block;
     vertical-align: top;
     font-family: "MonserratBold", sans-serif;
     font-size: 0.8125em;
     position: relative;
-    padding: 0 30px;
+    padding: 0 30px 4px;
     text-transform: uppercase;
     color: #fff;
     border-right: 1px solid #cb7369;
     overflow: hidden; }
     @media screen and (max-width: 992px) {
-      .header-menu__link {
+      .header-menu a {
         padding: 0 25px; } }
     @media screen and (max-width: 768px) {
-      .header-menu__link {
+      .header-menu a {
         padding: 0;
         line-height: 3;
         border: 0; } }
-    .header-menu__link:hover:before {
+    .header-menu a:hover:before {
       left: 50%;
       opacity: 1; }
-    .header-menu__link::before {
+    .header-menu a::before {
       content: '';
       position: absolute;
       bottom: 0;
@@ -1998,7 +1998,7 @@ header-content
       transition: all .8s ease;
       opacity: 0; }
       @media screen and (max-width: 768px) {
-        .header-menu__link::before {
+        .header-menu a::before {
           background: none; } }
 
 /*=====  End of header-bottom  ======*/
