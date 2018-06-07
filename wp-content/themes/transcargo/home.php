@@ -45,78 +45,12 @@
         <?php endwhile; ?>
     </div>
 <?php else: ?>
-  <!-- no posts found -->
+  <h2>Добавьте слайды из админки</h2>
 <?php endif; ?>
 
 
 
-<!--delivery-->
-<div class="delivery section">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-4">
-
-                <div class="img img-wrap wow flipInX" >
-                    <img src="<?php bloginfo('template_url'); ?>/assets/i/home/delivery-1.jpg" alt="img">
-                </div>
-
-                <h3 class="title title__small">Safe &amp; secure delivery</h3>
-                <p class="delivery__text">
-                    Integer congue, elit non semper laoreet sed lectus orci posuh nisl tempor lacus felis ac mauris.
-                    Pellentesque in urna. Intege vitae felis vel magna posuere vestibulum.
-                    Nam rutrum congue diam. Aliquam malesuada mauris et metus.
-                </p>
-
-                <div class="btn-wrap red">
-                    <a href="#" class="btn wow slideInUp">Read more</a>
-                </div>
-
-            </div>
-
-            <div class="col-md-4">
-
-                <div class="img img-wrap wow flipInX">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/i/home/delivery-2.jpg" alt="img">
-                </div>
-
-                <h3 class="title title__small">Fastest & in-time</h3>
-
-                <p class="delivery__text">
-                    Integer congue, elit non semper laoreet sed lectus orci posuh nisl tempor lacus felis ac mauris.
-                    Pellentesque in urna. Intege vitae felis vel magna posuere vestibulum.
-                    Nam rutrum congue diam. Aliquam malesuada mauris et metus.
-                </p>
-
-                <div class="btn-wrap red">
-                    <a href="#" class="btn wow slideInUp">Read more</a>
-                </div>
-
-            </div>
-
-            <div class="col-md-4">
-
-                <div class="img img-wrap wow flipInX">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/i/home/delivery-3.jpg" alt="img">
-                </div>
-
-                <h3 class="title title__small">Largest branches network</h3>
-
-                <p class="delivery__text">
-                    Integer congue, elit non semper laoreet sed lectus orci posuh nisl tempor lacus felis ac mauris.
-                    Pellentesque in urna. Intege vitae felis vel magna posuere vestibulum.
-                    Nam rutrum congue diam. Aliquam malesuada mauris et metus.
-                </p>
-
-                <div class="btn-wrap red">
-                    <a href="#" class="btn wow slideInUp">Read more</a>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div><!--deliver-->
+<?php include __DIR__ . '/inc/features.php'; ?>
 
 <!--free-quote-->
 <div class="free-quote wow zoomIn">
