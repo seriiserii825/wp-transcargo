@@ -2,13 +2,13 @@
   font-family: "RobotoRegular";
   font-style: normal;
   font-weight: normal;
-  src: url("/assets/fonts/RobotoRegular/RobotoRegular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/RobotoRegular/RobotoRegular.woff2") format("woff2"), url("/assets/fonts/RobotoRegular/RobotoRegular.woff") format("woff"), url("/assets/fonts/RobotoRegular/RobotoRegular.ttf") format("truetype"), url("/assets/fonts/RobotoRegular/RobotoRegular.svg#RobotoRegular") format("svg"); }
+  src: url("../../assets/fonts/RobotoRegular/RobotoRegular.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/RobotoRegular/RobotoRegular.woff2") format("woff2"), url("../../assets/fonts/RobotoRegular/RobotoRegular.woff") format("woff"), url("../../assets/fonts/RobotoRegular/RobotoRegular.ttf") format("truetype"), url("../../assets/fonts/RobotoRegular/RobotoRegular.svg#RobotoRegular") format("svg"); }
 
 @font-face {
   font-family: "MonserratBold";
   font-style: normal;
   font-weight: normal;
-  src: url("/assets/fonts/MonserratBold/MonserratBold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/MonserratBold/MonserratBold.woff2") format("woff2"), url("/assets/fonts/MonserratBold/MonserratBold.woff") format("woff"), url("/assets/fonts/MonserratBold/MonserratBold.ttf") format("truetype"), url("/assets/fonts/MonserratBold/MonserratBold.svg#MonserratBold") format("svg"); }
+  src: url("../../assets/fonts/MonserratBold/MonserratBold.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/MonserratBold/MonserratBold.woff2") format("woff2"), url("../../assets/fonts/MonserratBold/MonserratBold.woff") format("woff"), url("../../assets/fonts/MonserratBold/MonserratBold.ttf") format("truetype"), url("../../assets/fonts/MonserratBold/MonserratBold.svg#MonserratBold") format("svg"); }
 
 /*@font-face {
   font-family: 'icomoon';

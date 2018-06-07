@@ -67,3 +67,28 @@ register_sidebar( [
     'after_widget'  => ''
 ] );
 
+register_sidebar( [
+    'name'          => 'Зеленый блок',
+    'id'            => 'green-block',
+    'description'   => 'Добавьте социальные иконки через виджет html',
+    'class'         => '',
+    'before_widget' => '',
+    'after_widget'  => ''
+] );
+
+add_shortcode( 'fleets_gallery', 'fleets_gallery_cb' );
+function fleets_gallery_cb($atts){
+    $img_id = explode(',', $atts['ids']);
+    
+        foreach ($img_id as $id) {
+            $html .= '<div class="img-wrap">';
+                $img = wp_get_attachment_image( $id, 'full' );
+                $html .= $img;
+            $html .= '</div>';
+        }
+
+    return $html;
+}
+
+
+

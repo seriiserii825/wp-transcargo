@@ -47,34 +47,20 @@
 <?php else: ?>
   <h2>Добавьте слайды из админки</h2>
 <?php endif; ?>
+<?php wp_reset_postdata(); ?>
 
 
 
 <?php include __DIR__ . '/inc/features.php'; ?>
 
-<!--free-quote-->
-<div class="free-quote wow zoomIn">
+
+<?php if(!dynamic_sidebar( 'green-block' )): ?>
     <div class="container">
         <div class="row">
-            <div class="free-quote__outer">
-                <div class="free-quote__inner">
-                    <div class="left-block">
-                        <h3 class="title title__small">We provide fastest & affordable cargo services</h3>
-                        <p class="free-quote__text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt
-                        </p>
-                    </div>
-                    <div class="right-block">
-                        <div class="btn-wrap white">
-                            <a href="#" class="btn">Request a free quote</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 style="color: red;">Grren Block</h2>
         </div>
     </div>
-</div><!--free-quote-->
+<?php endif; ?>
 
 <!--home-services-->
 <div class="home-services section">
@@ -87,90 +73,29 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 wow flipInY" data-wow-delay=".8s">
-                <div class="home-services__item">
-                    <div class="left-icon">
-                        <span class="icon-ship"></span>
-                    </div>
-                    <div class="home-services__content">
-                        <h4 class="title title__small">Sea freight</h4>
-                        <p class="home-services__text">
-                            Integer congue elit non semper laorelectus orci posuer nisl tempor lacus mauris led
-                            ipsum.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow flipInY" data-wow-delay=".4s">
-                <div class="home-services__item">
-                    <div class="left-icon red">
-                        <span class="icon-road"></span>
-                    </div>
-                    <div class="home-services__content">
-                        <h4 class="title title__small">Road transportation</h4>
-                        <p class="home-services__text">
-                            Integer congue elit non semper laorelectus orci posuer nisl tempor lacus mauris led
-                            ipsum.
-                        </p>
+            <?php $our_services_posts = new WP_Query(['category_name' => 'our-services']); ?>
+
+            <?php if ( $our_services_posts->have_posts() ) : while ( $our_services_posts->have_posts() ) : $our_services_posts->the_post(); ?>
+                <?php $meta = get_post_meta($post->ID, 'our-services-icon', true);?>
+
+                <div class="col-lg-4 col-md-6 wow flipInY" data-wow-delay=".8s">
+                    <div class="home-services__item">
+                        <div class="left-icon">
+                            <span class="<?php echo $meta; ?>"></span>
+                        </div>
+                        <div class="home-services__content">
+                            <h4 class="title title__small"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                            <p class="home-services__text">
+                                <?php the_excerpt(); ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow flipInY" data-wow-delay=".1s">
-                <div class="home-services__item">
-                    <div class="left-icon">
-                        <span class="icon-plane"></span>
-                    </div>
-                    <div class="home-services__content">
-                        <h4 class="title title__small">Air freight</h4>
-                        <p class="home-services__text">
-                            Integer congue elit non semper laorelectus orci posuer nisl tempor lacus mauris led
-                            ipsum.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow flipInY" data-wow-delay=".8s">
-                <div class="home-services__item">
-                    <div class="left-icon">
-                        <span class="icon-train"></span>
-                    </div>
-                    <div class="home-services__content">
-                        <h4 class="title title__small">Railway logistics</h4>
-                        <p class="home-services__text">
-                            Integer congue elit non semper laorelectus orci posuer nisl tempor lacus mauris led
-                            ipsum.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow flipInY" data-wow-delay=".4s">
-                <div class="home-services__item">
-                    <div class="left-icon">
-                        <span class="icon-cube-1"></span>
-                    </div>
-                    <div class="home-services__content">
-                        <h4 class="title title__small">Packaging &amp; storage</h4>
-                        <p class="home-services__text">
-                            Integer congue elit non semper laorelectus orci posuer nisl tempor lacus mauris led
-                            ipsum.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow flipInY" data-wow-delay=".1s">
-                <div class="home-services__item">
-                    <div class="left-icon">
-                        <span class="icon-garage"></span>
-                    </div>
-                    <div class="home-services__content">
-                        <h4 class="title title__small">Warehousing</h4>
-                        <p class="home-services__text">
-                            Integer congue elit non semper laorelectus orci posuer nisl tempor lacus mauris led
-                            ipsum.
-                        </p>
-                    </div>
-                </div>
-            </div>
+              <?php endwhile; ?>
+              <!-- post navigation -->
+              <?php else: ?>
+              Записи из категории Our-services
+            <?php endif; ?>
         </div>
     </div>
 
@@ -187,42 +112,18 @@
         <div class="row">
             <div class="col-12">
                 <div class="fleets-slider" id="js-fleets-gallery">
-                    <div class="img-wrap">
+                    <?php $fleets_gallery = new WP_Query(['name' => 'fleets-gallery']); ?>
+
+                    <?php if ( $fleets_gallery->have_posts() ) : while ( $fleets_gallery->have_posts() ) : $fleets_gallery->the_post(); ?>
+                        <?php the_content(); ?>
+                      <?php endwhile; ?>
+                      <!-- post navigation -->
+                      <?php else: ?>
+                      <!-- no posts found -->
+                    <?php endif; ?>
+                    <!--<div class="img-wrap">
                         <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-1.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-2.JPG" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-3.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-4.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-5.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-6.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-7.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-8.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-9.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-10.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-11.jpg" alt="slide">
-                    </div>
-                    <div class="img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/fleets-12.jpg" alt="slide">
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
