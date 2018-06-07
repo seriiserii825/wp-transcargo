@@ -160,21 +160,12 @@
                             <?php wp_nav_menu( array(
                                 'theme_location'  => 'header-menu',
                                 'container'       => '',
-                                'container_id'    => '',
                                 'menu_class'      => 'header-menu',
                                 'menu_id'         => 'js-header-menu',
-                                'echo'            => true,
                                 'before'          => '',
                                 'after'           => ''
                             ) ); ?>
-                            <!--<ul class="header-menu" id="js-header-menu">
-                                <li class="header-menu__item"><a href="home.html" class="header-menu__link">Home</a></li>
-                                <li class="header-menu__item"><a href="our-services.html" class="header-menu__link">Our Services</a></li>
-                                <li class="header-menu__item"><a href="about-us.html" class="header-menu__link">About Us</a></li>
-                                <li class="header-menu__item"><a href="latest-news.html" class="header-menu__link">News</a></li>
-                                <li class="header-menu__item"><a href="shop.html" class="header-menu__link">Shop</a></li>
-                                <li class="header-menu__item"><a href="contacts.html" class="header-menu__link">Contact</a></li>
-                            </ul>-->
+
                         </div>
                     </div>
                 </div>
