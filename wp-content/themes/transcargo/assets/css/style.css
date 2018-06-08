@@ -2574,6 +2574,11 @@ img {
     .latest-news .big-news__data-item:last-child {
       border-right: 0; }
 
+.latest-news .small-news__item .big-news__title {
+  height: 36px;
+  overflow: hidden;
+}
+
 @media screen and (max-width: 992px) {
   .latest-news .small-news__item {
     margin: 0 auto;

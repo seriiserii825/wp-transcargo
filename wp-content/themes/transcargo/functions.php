@@ -1,6 +1,7 @@
 <?php 
 require __DIR__ . '/inc/settings.php';
 require __DIR__ . '/inc/load-scripts.php';
+require __DIR__ . '/inc/helpers.php';
 
 add_action('init', 'register_post_types');
 function register_post_types(){
@@ -71,6 +72,15 @@ register_sidebar( [
     'name'          => 'Зеленый блок',
     'id'            => 'green-block',
     'description'   => 'Добавьте социальные иконки через виджет html',
+    'class'         => '',
+    'before_widget' => '',
+    'after_widget'  => ''
+] );
+
+register_sidebar( [
+    'name'          => 'Надежные партнеры',
+    'id'            => 'trusted-partners',
+    'description'   => 'Добавьте надежных партнеров через виджет html',
     'class'         => '',
     'before_widget' => '',
     'after_widget'  => ''

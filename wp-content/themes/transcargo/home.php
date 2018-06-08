@@ -243,61 +243,70 @@
             <!--latest-news__content-->
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="big-news">
-                        <div class="img-wrap">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/i/home/big-news.jpg" alt="img">
-                        </div>
-                        <div class="big-news__content">
-                            <h5 class="big-news__title">Duis vel tellus vitae ante tincidunt tincidun</h5>
-                            <div class="big-news__data">
-                                <div class="big-news__data-item">By john deo</div>
-                                <time class="big-news__data-item">Jun 29, 2015</time>
+                    <?php $lates_news_posts = new WP_Query(['category_name' => 'news', 'posts_per_page' => 1]); ?>
+
+                    <?php if ( $lates_news_posts->have_posts() ) : while ( $lates_news_posts->have_posts() ) : $lates_news_posts->the_post(); ?>
+                        <div class="big-news">
+                            <div class="img-wrap">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/i/home/big-news.jpg" alt="img">
+                            </div>
+                            <div class="big-news__content">
+                                <h5 class="big-news__title"><?php the_title(); ?></h5>
+                                <div class="big-news__data">
+                                    <div class="big-news__data-item">By <?php the_author(); ?></div>
+                                    <?php 
+                                        $date = get_the_date();
+                                        $date_arr = explode('.', $date); 
+                                        $date_num = $date_arr[0];
+                                        $month = $date_arr[1];
+                                        $month = get_month_string($month);
+                                        $year = $date_arr[2];
+                                        $date = $month .' '. $date_num .', '. $year;
+                                    ?>
+                                    <time class="big-news__data-item"><?php echo $date; ?></time>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                      <?php endwhile; ?>
+                      <!-- post navigation -->
+                      <?php else: ?>
+                        <h2>Постов не найдено</h2>
+                    <?php endif; ?>
                 </div>
 
                 <div class="col-lg-6">
+                    <?php $lates_news_posts = new WP_Query(['category_name' => 'news', 'posts_per_page' => 3]); ?>
                     <div class="small-news-wrap">
-                        <div class="small-news__item">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="img-wrap">
-                                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/big-news-2.jpg" alt="img">
-                                    </div>
-                                </div>
+                        <?php $i = 0; ?>
+                        <?php if ( $lates_news_posts->have_posts() ) : while ( $lates_news_posts->have_posts() ) : $lates_news_posts->the_post(); ?>
+                            <?php $i++; ?>
+                            <?php if($i == 1) : ?>
+                                <?php continue; ?>
+                            <?php else: ?>
+                                <div class="small-news__item">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="img-wrap">
+                                                <?php the_post_thumbnail(); ?>
+                                            </div>
+                                        </div>
 
-                                <div class="col-sm-6">
-                                    <div class="big-news__content">
-                                        <h5 class="big-news__title">Neque rutrum quis pro nine velit sed ipsum</h5>
-                                        <div class="big-news__data">
-                                            <div class="big-news__data-item">By john deo</div>
-                                            <time class="big-news__data-item">Jun 29, 2015</time>
+                                        <div class="col-sm-6">
+                                            <div class="big-news__content">
+                                                <h5 class="big-news__title"><?php the_title(); ?></h5>
+                                                <div class="big-news__data">
+                                                    <div class="big-news__data-item">By <?php the_author(); ?></div>
+                                                    <time class="big-news__data-item"><?php echo $date; ?></time>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="small-news__item">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="img-wrap">
-                                        <img src="<?php bloginfo('template_url'); ?>/assets/i/home/big-news-3.jpg" alt="img">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="big-news__content">
-                                        <h5 class="big-news__title">Neque rutrum quis pro nine velit sed ipsum</h5>
-                                        <div class="big-news__data">
-                                            <div class="big-news__data-item">By john deo</div>
-                                            <time class="big-news__data-item">Jun 29, 2015</time>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <?php endif; ?>
+                          <?php endwhile; ?>
+                          <?php else: ?>
+                          <!-- no posts found -->
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -319,53 +328,9 @@
             </header>
 
             <div class="partners__content">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="partners__item wow rotateInUpLeft">
-                            <a href="#" class="icon">
-                                <span class="icon-partners-1-1"><span class="path1"></span><span class="path2"></span><span
-                                class="path3"></span></span>
-                            </a>
-
-                            <a href="#" class="icon">
-                                <span class="icon-partners-1-2"></span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="partners__item wow rotateInUpLeft">
-                            <a href="#" class="icon">
-                                <span class="icon-partners-2-1"><span class="path1"></span><span class="path2"></span><span
-                                class="path3"></span><span class="path4"></span></span>
-                            </a>
-
-                            <a href="#" class="icon">
-                                <span class="icon-partners-2-2"></span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="partners__item wow rotateInUpLeft">
-                            <a href="#" class="icon">
-                                <span class="icon-partners-3-1"><span class="path1"></span><span class="path2"></span></span>
-                            </a>
-                            <a href="#" class="icon">
-                                <span class="icon-partners-3-2"></span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="partners__item wow rotateInUpLeft">
-                            <a href="#" class="icon">
-                                <span class="icon-partners-4-1"><span class="path1"></span><span class="path2"></span><span
-                                class="path3"></span></span>
-                            </a>
-                            <a href="#" class="icon">
-                                <span class="icon-partners-4-2"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <?php if(!dynamic_sidebar('trusted-partners')): ?>
+                    <h2>Добавьте пратнеров через виджет текст</h2>
+                <?php endif; ?>
             </div>
         </div>
     </div>
