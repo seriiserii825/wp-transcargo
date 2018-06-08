@@ -27,6 +27,8 @@ function register_post_types(){
     ) );
 }
 
+remove_filter('the_content', 'wpautop');
+
 add_filter( 'nav_menu_link_attributes', 'filter_function_name_3020', 10, 4 );
 function filter_function_name_3020( $atts, $item, $args, $depth ){
     $img = $item->description;

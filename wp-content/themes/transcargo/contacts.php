@@ -25,7 +25,7 @@ $title = get_the_title();
 <!--main-->
 <div class="main contacts">
     <div class="map wow zoomIn" id="js-map">
-        
+
     </div>
 
     <?php the_post(); ?>
@@ -86,73 +86,24 @@ $title = get_the_title();
                                 </li>
                             </ul>
                         </div><!--address-block--></div>
-                </div>
+                    </div>
 
-                <div class="col-lg-8">
-                    <div class="contacts-block">
-                        <h2 class="title wow zoomIn">Send us a message</h2>
-                        <p><?php the_field('send_us_a_message'); ?></p>
-
-                        <form class="form" method="post" action="/">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group wow flipInY">
-                                        <i class="fa fa-user"></i>
-                                        <input type="text" name="login" placeholder="First Name">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group wow flipInY">
-                                        <i class="fa fa-user"></i>
-                                        <input type="text" name="lastName" placeholder="Last Name">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group wow flipInY">
-                                        <i class="fa fa-envelope-o"></i>
-                                        <input type="email" name="email" placeholder="Email Address">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group wow flipInY">
-                                        <i class="fa fa-phone"></i>
-                                        <input type="number" name="phone" placeholder="Phone no.">
-                                    </div>
-                                </div>
-                            </div><!--row-->
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group wow flipInY"><input type="text" name="subject" placeholder="Subject"></div>
-                                </div>
+                    <div class="col-lg-8">
+                        <div class="contacts-block">
+                            <h2 class="title wow zoomIn">Send us a message</h2>
+                            <p><?php the_field('send_us_a_message'); ?></p>
+                            <div class="bezbrp">            
+                                <div class="form"><?php the_content(); ?></div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group wow flipInY textarea">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="btn-wrap wow bounceInRight">
-                                        <input type="submit" class="btn" value="Send message">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<?php get_footer(); ?>
+    <?php get_footer(); ?>
+
+
+
