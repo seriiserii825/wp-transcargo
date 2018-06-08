@@ -29,8 +29,6 @@
                 <div class="btn-wrap white">
                     <a href="#" class="btn">Get a free quote</a>
                 </div>
-
-
             </div>
 
             <div class="col-lg-2 col-md-6">
