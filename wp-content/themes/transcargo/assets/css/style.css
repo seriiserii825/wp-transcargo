@@ -2940,25 +2940,24 @@ img {
   text-transform: uppercase;
   color: #878787; }
 
-.latest-news-page .tags__item {
+.latest-news-page .tagcloud a {
   display: inline-block;
   vertical-align: top;
-  margin: 4px; }
-  .latest-news-page .tags__item.active .tags__link, .latest-news-page .tags__item:hover .tags__link {
-    color: #fff;
-    background: #a91605;
-    border-color: #a91605; }
-
-.latest-news-page .tags__link {
-  display: block;
+  margin: 4px;
   padding: 12px 16px;
   font-size: 0.6875em;
   text-transform: uppercase;
   color: #333;
   background: #f4f4f4;
   border: 1px solid #eee;
-  -webkit-transition: all .6s ease;
-  transition: all .6s ease; }
+  transition: all .3s ease;
+}
+
+.latest-news-page .tagcloud a:hover {
+    color: #fff;
+    background: #a91605;
+    border-color: #a91605;
+}
 
 .latest-news-page .twitter-list__item {
   padding: 25px 0;
@@ -3253,5 +3252,13 @@ img {
 
 /* end footer-main
 ====================================================*/
+
+.widgettitle {
+  margin-bottom: 30px;
+}
+
+.tagcloud {
+  margin-bottom: 50px;
+}
 
 

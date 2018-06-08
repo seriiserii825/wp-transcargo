@@ -254,16 +254,7 @@
                                 <h5 class="big-news__title"><?php the_title(); ?></h5>
                                 <div class="big-news__data">
                                     <div class="big-news__data-item">By <?php the_author(); ?></div>
-                                    <?php 
-                                        $date = get_the_date();
-                                        $date_arr = explode('.', $date); 
-                                        $date_num = $date_arr[0];
-                                        $month = $date_arr[1];
-                                        $month = get_month_string($month);
-                                        $year = $date_arr[2];
-                                        $date = $month .' '. $date_num .', '. $year;
-                                    ?>
-                                    <time class="big-news__data-item"><?php echo $date; ?></time>
+                                    <time class="big-news__data-item"><?php echo transcargo_get_the_date(); ?></time>
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,7 @@
 require __DIR__ . '/inc/settings.php';
 require __DIR__ . '/inc/load-scripts.php';
 require __DIR__ . '/inc/helpers.php';
+require __DIR__ . '/inc/widgets.php';
 
 add_action('init', 'register_post_types');
 function register_post_types(){
@@ -59,42 +60,6 @@ register_nav_menus( [
     'footer-menu' => 'Меню в футере'
 ] );
 
-register_sidebar( [
-    'name'          => 'Социальные иконки',
-    'id'            => 'header-socials',
-    'description'   => 'Добавьте социальные иконки через виджет html',
-    'class'         => '',
-    'before_widget' => '',
-    'after_widget'  => ''
-] );
-
-register_sidebar( [
-    'name'          => 'Зеленый блок',
-    'id'            => 'green-block',
-    'description'   => 'Добавьте социальные иконки через виджет html',
-    'class'         => '',
-    'before_widget' => '',
-    'after_widget'  => ''
-] );
-
-register_sidebar( [
-    'name'          => 'Надежные партнеры',
-    'id'            => 'trusted-partners',
-    'description'   => 'Добавьте надежных партнеров через виджет html',
-    'class'         => '',
-    'before_widget' => '',
-    'after_widget'  => ''
-] );
-
-register_sidebar( [
-    'name'          => 'Виджеты социальных иконок',
-    'id'            => 'footer-widgets-icons',
-    'description'   => 'Добавьте виджеты футера социальных иконок через виджет html',
-    'class'         => '',
-    'before_widget' => '',
-    'after_widget'  => ''
-] );
-
 add_shortcode( 'fleets_gallery', 'fleets_gallery_cb' );
 function fleets_gallery_cb($atts){
     $img_id = explode(',', $atts['ids']);
@@ -106,6 +71,37 @@ function fleets_gallery_cb($atts){
             $html .= '</div>';
         }
 
+    return $html;
+}
+
+    
+add_filter('widget_text', 'do_shortcode');
+
+add_shortcode('recent_posts', 'recent_posts_cb');
+function recent_posts_cb($atts){
+    $recent_posts = new WP_Query(['post_type' => 'post', 'posts_per_page' => 4, 'post__not_in' => [164]]);
+
+    $html .= '<div class="block">
+                        <ul class="recent-post">';
+        ?>
+            <?php if ( $recent_posts->have_posts() ) : while ( $recent_posts->have_posts() ) : $recent_posts->the_post();
+                $html .= '<li class="recent-post__item">
+                    <div class="img-wrap wow zoomIn">
+                        '.get_the_post_thumbnail( $post->ID, [80, 80] ).'
+                    </div>
+                    <div class="recent-post__content">
+                        <h5 class="recent-post__title">'.get_the_title().'</h5>
+                        <time class="recent-post__time">'.transcargo_get_the_date().'</time>
+                    </div>
+                </li>';
+                ?>
+              <?php endwhile; ?>
+              <!-- post navigation -->
+              <?php else: ?>
+              <!-- no posts found -->
+            <?php endif; ?>
+        <?
+        $html .= '</ul></div>';
     return $html;
 }
 
