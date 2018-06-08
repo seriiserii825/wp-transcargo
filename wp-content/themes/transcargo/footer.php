@@ -1,5 +1,8 @@
 <!--footer-->
 <footer class="footer-main">
+    <?php  $footer_posts = new WP_Query(['name' => 'footer']); ?>
+    <?php  $footer_posts->the_post();?>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6">
@@ -11,40 +14,17 @@
 
                     <!-- logo-conten -->
                     <div class="logo-content">
-                        <h2 class="logo-title">Trans
-                            <span class="accent">Cargo</span>
-                        </h2>
+                        <h2 class="logo-title"><?php bloginfo('name'); ?></h2>
 
-                        <span class="logo-text">Well Maintained Logistics Services</span>
+                        <span class="logo-text"><?php bloginfo('description'); ?></span>
                     </div>
                 </div>
 
-                <p class="text">
-                    Integer congue elit non semper laoreet sed lectu orc posuer nisl tempor sed felis ac mauris ellent
-                    esque ndu ca urna Integer vitae felis.
-                </p>
-
-                <div class="socials">
-                    <div class="social-item">
-                        <a href="#" class="icon"><i class="fa fa-facebook"></i></a>
-                    </div>
-
-                    <div class="social-item">
-                        <a href="#" class="icon"><i class="fa fa-google-plus"></i></a>
-                    </div>
-
-                    <div class="social-item">
-                        <a href="#" class="icon"><i class="fa fa-twitter"></i></a>
-                    </div>
-
-                    <div class="social-item">
-                        <a href="#" class="icon"><i class="fa fa-pinterest"></i></a>
-                    </div>
-
-                    <div class="social-item">
-                        <a href="#" class="icon"><i class="fa fa-vk"></i></a>
-                    </div>
-                </div>
+                <p class="text"><?php the_content(); ?></p>
+                
+                <?php if(!dynamic_sidebar('footer-widgets-icons')): ?>
+                    <h2>Место для социальных иконок</h2>
+                <?php endif; ?>
 
                 <div class="btn-wrap white">
                     <a href="#" class="btn">Get a free quote</a>
@@ -56,69 +36,62 @@
             <div class="col-lg-2 col-md-6">
                 <h4 class="title title-small">We offers</h4>
 
+                <?php $offers_posts = new WP_Query(['category_name' => 'our-services']); ?>
+
                 <ul class="footer-list">
-                    <li class="footer-list__item">Sea Freight</li>
-                    <li class="footer-list__item">Road Transportation</li>
-                    <li class="footer-list__item">Air Freight</li>
-                    <li class="footer-list__item">Railway Logistics</li>
-                    <li class="footer-list__item">Packaging & Storage</li>
-                    <li class="footer-list__item">Warehousing</li>
+                    <?php if ( $offers_posts->have_posts() ) : while ( $offers_posts->have_posts() ) : $offers_posts->the_post(); ?>
+                        <li class="footer-list__item">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </li>
+                      <?php endwhile; ?>
+                      <!-- post navigation -->
+                      <?php else: ?>
+                      <!-- no posts found -->
+                    <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
                 </ul>
             </div>
 
             <div class="col-lg-2 col-md-6">
                 <h4 class="title title-small">Main links</h4>
 
-                <ul class="footer-list">
-                    <li class="footer-list__item">
-                        <a href="#">Home</a>
-                    </li>
-                    <li class="footer-list__item">
-                        <a href="#">Our Services</a>
-                    </li>
-                    <li class="footer-list__item">
-                        <a href="#">About Us</a>
-                    </li>
-                    <li class="footer-list__item">
-                        <a href="#">News</a>
-                    </li>
-                    <li class="footer-list__item">
-                        <a href="#">Shop</a>
-                    </li>
-                    <li class="footer-list__item">
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
+                <?php wp_nav_menu( array(
+                    'theme_location'  => 'footer-menu',
+                    'container'       => '',
+                    'menu_class'      => 'footer-list',
+                    'before'          => '',
+                    'after'           => '',
+                ) ); ?>
+
             </div>
+
+            <?php  $footer_posts = new WP_Query(['name' => 'footer']); ?>
+            <?php  $footer_posts->the_post();?>
 
             <div class="col-lg-4 col-md-6">
                 <h4 class="title title-small">Contact info</h4>
 
-                <p class="text">
-                    Everyday is a new day for us and we work really hard to satisfy our customers everywhere.
-                </p>
+                <p class="text"><?php the_field('contact_info'); ?></p>
 
                 <ul class="contact-list">
                     <li class="contact-list__item">
                         <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                        <div class="contact-list__content"><strong>TRANSCARGO LTD.</strong>
-                            3608 NewHill Station Ave CA, Newyork 33102
-                        </div>
+                        <div class="contact-list__content"><?php the_field('footer_address'); ?></div>
                     </li>
 
                     <li class="contact-list__item">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        <div class="contact-list__content">1.800.987.6543</div>
+                        <div class="contact-list__content"><?php the_field('footer_phone'); ?></div>
                     </li>
 
                     <li class="contact-list__item">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <div class="contact-list__content">info@domain.com | quote@domain.com</div>
+                        <div class="contact-list__content"><?php the_field('footer_email'); ?></div>
                     </li>
 
                     <li class="contact-list__item">
                         <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        <div class="contact-list__content">Mon - Sat 8.00 - 19.00</div>
+                        <div class="contact-list__content"><?php the_field('footer_date'); ?></div>
                     </li>
                 </ul>
             </div>

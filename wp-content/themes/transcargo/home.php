@@ -199,15 +199,15 @@
             <div class="container">
                 <div class="row">
                     <?php while ( $ability_posts->have_posts() ) : $ability_posts->the_post(); ?>
-                                        <div class="col-md-6 col-lg-3">
-                    <div class="ability__item wow flipInY">
-                        <div class="left-icon"><i class="fa <?php echo get_post_meta($post->ID, 'ability-icon', true); ?>"></i></div>
-                            <div class="ability__content">
-                                <span class="number"><?php echo get_post_meta($post->ID, 'ability-number', true); ?></span>
-                                <span class="text"><?php the_title(); ?></span>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="ability__item wow flipInY">
+                                <div class="left-icon"><i class="fa <?php echo get_post_meta($post->ID, 'ability-icon', true); ?>"></i></div>
+                                <div class="ability__content">
+                                    <span class="number"><?php echo get_post_meta($post->ID, 'ability-number', true); ?></span>
+                                    <span class="text"><?php the_title(); ?></span>
+                                </div>
                             </div>
-                        </div>
-                    </div>                    
+                        </div>                    
                     <?php endwhile; ?>
                 </div>
             </div>
@@ -287,7 +287,7 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="img-wrap">
-                                                <?php the_post_thumbnail(); ?>
+                                                <img src="<?php the_field('news_img'); ?>" alt="">
                                             </div>
                                         </div>
 

@@ -58,9 +58,12 @@
 
                             <!-- logo-conten -->
                             <div class="logo-content">
-                                <h2 class="logo-title">Trans <span class="accent">Cargo</span></h2>
+                                <?php 
+                                    $logo_arr = explode(' ', get_bloginfo('name'));
+                                ?>
+                                <h2 class="logo-title"><?php echo $logo_arr[0]; ?> <span class="accent"><?php echo $logo_arr[1]; ?></span></h2>
 
-                                <span class="logo-text">Well Maintained Logistics Services</span>
+                                <span class="logo-text"><?php bloginfo('description'); ?></span>
                             </div>
                         </div>
                     </div>

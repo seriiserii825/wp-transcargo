@@ -3187,11 +3187,16 @@ img {
       background: rgba(255, 255, 255, 0.6); }
   .footer-main .title.title-small {
     font-size: 0.9375em; }
-  .footer-main .footer-list__item {
+  .footer-main li {
     margin-bottom: 22px;
     font-size: 0.8125em; }
-    .footer-main .footer-list__item a {
+    .footer-main li a {
+      text-transform: lowercase;
+      text-transform: capitalize;
       color: inherit; }
+    .footer-main li a:hover{
+      text-decoration: underline;
+    }
   .footer-main .contact-list__item {
     display: -webkit-box;
     display: -ms-flexbox;

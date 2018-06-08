@@ -86,6 +86,15 @@ register_sidebar( [
     'after_widget'  => ''
 ] );
 
+register_sidebar( [
+    'name'          => 'Виджеты социальных иконок',
+    'id'            => 'footer-widgets-icons',
+    'description'   => 'Добавьте виджеты футера социальных иконок через виджет html',
+    'class'         => '',
+    'before_widget' => '',
+    'after_widget'  => ''
+] );
+
 add_shortcode( 'fleets_gallery', 'fleets_gallery_cb' );
 function fleets_gallery_cb($atts){
     $img_id = explode(',', $atts['ids']);
