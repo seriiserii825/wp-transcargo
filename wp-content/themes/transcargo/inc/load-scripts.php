@@ -23,5 +23,11 @@ function transcargo_scripts() {
     
 
     wp_enqueue_script( 'transcargo-slick', get_template_directory_uri() . '/assets/libs/slick/slick.min.js', ['transcargo-jquery'], false, true );
+
     wp_enqueue_script( 'transcargo-main', get_template_directory_uri() . '/assets/js/main.js', ['transcargo-jquery'], false, true );
+
+    if(is_page('contacts')){
+        wp_enqueue_script( 'transcargo-googleapis', 'https://maps.googleapis.com/maps/api/js', ['transcargo-jquery'], false, true );        
+        wp_enqueue_script( 'transcargo-google-map', get_template_directory_uri() . '/assets/libs/google-map/map.js', ['transcargo-jquery'], false, true );        
+    }
 }

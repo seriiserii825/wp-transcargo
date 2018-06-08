@@ -132,7 +132,7 @@ $(function(){
     $('#js-up').on('click', function(){
         $('html, body').animate({
             scrollTop: 0
-        }, 3000);
+        }, 1000);
     });
 
     /* about-us tabs
