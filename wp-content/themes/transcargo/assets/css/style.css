@@ -2829,7 +2829,8 @@ img {
     .about-us-tabs .text {
       margin-bottom: 80px; } }
 
-.about-us-tabs .text-underline {
+.about-us-tabs a {
+  color: inherit;
   text-decoration: underline; }
 
 /* end about-us
